@@ -9,7 +9,6 @@ import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * @author Caio
@@ -29,7 +28,8 @@ public class CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeCarga extends DFBase {
     private String identificacaoCarga;
 
     @Element(name = "lacUnidCarga", required = false)
-    private List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre;
+    //private List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre;
+    private CTeNotaInfoCTeNormalInfoDocumentosLacre lacre;
 
     @Element(name = "qtdRat", required = false)
     private String quantidadeRateada;
@@ -69,17 +69,25 @@ public class CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeCarga extends DFBase {
         this.identificacaoCarga = identificacaoCarga;
     }
 
-    public List<CTeNotaInfoCTeNormalInfoDocumentosLacre> getLacre() {
+//    public List<CTeNotaInfoCTeNormalInfoDocumentosLacre> getLacre() {
+//        return this.lacre;
+//    }
+    public CTeNotaInfoCTeNormalInfoDocumentosLacre getLacre() {
         return this.lacre;
     }
 
     /**
      * Lacres das Unidades de Carga
      */
-    public void setLacre(final List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre) {
+//    public void setLacre(final List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre) {
+//        this.lacre = lacre;
+//    }
+
+    public void setLacre(final CTeNotaInfoCTeNormalInfoDocumentosLacre lacre) {
         this.lacre = lacre;
     }
 
+    
     public String getQuantidadeRateada() {
         return this.quantidadeRateada;
     }
