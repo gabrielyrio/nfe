@@ -3,7 +3,7 @@ package com.fincatto.documentofiscal.cte300.classes;
 public enum CTTipoFerrovia {
 
     FERROVIA_ORIGEM("1", "Ferrovia de origem"),
-    FERROVIS_DESTINO("2", "Ferrovia de destino");
+    FERROVIA_DESTINO("2", "Ferrovia de destino");
 
     private final String codigo;
     private final String descricao;
