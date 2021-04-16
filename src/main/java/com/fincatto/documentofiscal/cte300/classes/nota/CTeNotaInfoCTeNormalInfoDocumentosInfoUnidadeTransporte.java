@@ -10,6 +10,7 @@ import org.simpleframework.xml.Root;
 
 import java.math.BigDecimal;
 import java.util.List;
+import org.simpleframework.xml.ElementList;
 
 /**
  * @author Caio
@@ -29,9 +30,10 @@ public class CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeTransporte extends DFB
     private String identificacaoTransporte;
 
     @Element(name = "lacUnidTransp", required = false)
-    private List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre;
+    private CTeNotaInfoCTeNormalInfoDocumentosLacre lacre;
+   // private List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre;
 
-    @Element(name = "infUnidCarga", required = false)
+    @ElementList(name = "infUnidCarga", inline = true, required = false)
     private List<CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeCarga> infoUnidadeCarga;
 
     @Element(name = "qtdRat", required = false)
@@ -76,17 +78,25 @@ public class CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeTransporte extends DFB
         this.identificacaoTransporte = identificacaoTransporte;
     }
 
-    public List<CTeNotaInfoCTeNormalInfoDocumentosLacre> getLacre() {
+//    public List<CTeNotaInfoCTeNormalInfoDocumentosLacre> getLacre() {
+//        return this.lacre;
+//    }
+
+    public CTeNotaInfoCTeNormalInfoDocumentosLacre getLacre() {
         return this.lacre;
     }
 
     /**
      * Lacres das Unidades de Transporte
      */
-    public void setLacre(final List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre) {
+//    public void setLacre(final List<CTeNotaInfoCTeNormalInfoDocumentosLacre> lacre) {
+//        this.lacre = lacre;
+//    }
+
+    public void setLacre(final CTeNotaInfoCTeNormalInfoDocumentosLacre lacre) {
         this.lacre = lacre;
     }
-
+    
     public List<CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeCarga> getInfoUnidadeCarga() {
         return this.infoUnidadeCarga;
     }
@@ -110,3 +120,4 @@ public class CTeNotaInfoCTeNormalInfoDocumentosInfoUnidadeTransporte extends DFB
         this.quantidadeRateada = BigDecimalValidador.tamanho5Com2CasasDecimais(quantidadeRateada, "Quantidade rateada (Peso,Volume)");
     }
 }
+
