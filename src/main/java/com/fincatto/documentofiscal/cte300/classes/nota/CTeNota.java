@@ -9,6 +9,8 @@ import org.simpleframework.xml.Root;
 /**
  * @author Caio
  * @info Tipo Conhecimento de Transporte Eletrônico (Modelo 57)
+ * Atualizado por Gabriel Cruz Lyrio 16-04-2021
+ * adicionado atributo: CTeNotaInfoSuplementares
  */
 
 @Root(name = "CTe")
@@ -18,6 +20,10 @@ public class CTeNota extends DFBase {
     
     @Element(name = "infCte")
     private CTeNotaInfo info;
+    
+    
+    @Element(name = "infCTeSupl", required = false)
+    private CTeNotaInfoSuplementares infoSuplementares;
 
     @Element(name = "Signature", required = false)
     private CTeSignature signature;
@@ -25,6 +31,7 @@ public class CTeNota extends DFBase {
     public CTeNota() {
         this.info = null;
         this.signature = null;
+        this.infoSuplementares = null;
     }
 
     public CTeNotaInfo getCteNotaInfo() {
@@ -42,4 +49,22 @@ public class CTeNota extends DFBase {
     public void setSignature(final CTeSignature signature) {
         this.signature = signature;
     }
+
+    public CTeNotaInfoSuplementares getInfoSuplementares() {
+        return infoSuplementares;
+    }
+
+    public void setInfoSuplementares(CTeNotaInfoSuplementares infoSuplementares) {
+        this.infoSuplementares = infoSuplementares;
+    }
+
+    public CTeNotaInfo getInfo() {
+        return info;
+    }
+
+    public void setInfo(CTeNotaInfo info) {
+        this.info = info;
+    }
+    
+    
 }
