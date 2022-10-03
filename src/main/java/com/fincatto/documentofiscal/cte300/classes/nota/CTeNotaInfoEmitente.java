@@ -1,13 +1,14 @@
 package com.fincatto.documentofiscal.cte300.classes.nota;
 
 import com.fincatto.documentofiscal.DFBase;
+import com.fincatto.documentofiscal.cte300.classes.CTRegimeTributario;
 import com.fincatto.documentofiscal.validadores.StringValidador;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 /**
- * @author Caio
+ * @author Caio 
  * @info Identificação do Emitente do CT-e
  */
 
@@ -33,6 +34,11 @@ public class CTeNotaInfoEmitente extends DFBase {
     
     @Element(name = "enderEmit")
     private CTeNotaEnderecoEmitente endereco;
+
+    // Inclusão do campo CRT 
+    @Element(name = "CRT", required = false)
+    private String codigoRegimeTributario;
+;
 
     public CTeNotaInfoEmitente() {
         this.cnpj = null;
@@ -114,4 +120,33 @@ public class CTeNotaInfoEmitente extends DFBase {
     public void setEnderEmit(final CTeNotaEnderecoEmitente enderEmit) {
         this.endereco = enderEmit;
     }
+
+    public CTeNotaEnderecoEmitente getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(CTeNotaEnderecoEmitente endereco) {
+        this.endereco = endereco;
+    }
+
+    /*
+    * Autor: Gabriel Cruz Lyrio
+    * Inclusão do campo CRT 
+    */
+    public CTRegimeTributario getRegimeTributario() {
+        return CTRegimeTributario.valueOf(codigoRegimeTributario);
+    }
+
+    public String getCodigoRegimeTributario() {
+        return codigoRegimeTributario;
+    }
+
+    public void setRegimeTributario(CTRegimeTributario codigoRegimeTributario) {
+        this.codigoRegimeTributario = codigoRegimeTributario.getCodigo();
+    }
+    
+    public void setRegimeTributario(String codigoRegimeTributario) {
+        this.codigoRegimeTributario = codigoRegimeTributario;
+    }
+    
 }
