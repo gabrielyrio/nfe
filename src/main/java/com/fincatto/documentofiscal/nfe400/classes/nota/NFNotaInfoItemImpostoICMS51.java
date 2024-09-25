@@ -61,6 +61,9 @@ public class NFNotaInfoItemImpostoICMS51 extends DFBase {
 	@Element(name = "vFCPEfet", required = false)
 	private String valorEfetivoFundoCombatePobreza;
 
+ 	@Element(name = "cBenefRBC", required = false) //Código de Benefício Fiscal na UF aplicado ao item quando houver RBC
+    	private String codigoBeneficioFiscalReducaoBaseCalculoUF;    	
+
 	public String getPercentualDiferimentoFundoCombatePobreza() {
 		return percentualDiferimentoFundoCombatePobreza;
 	}
@@ -206,4 +209,12 @@ public class NFNotaInfoItemImpostoICMS51 extends DFBase {
 	public String getValorFundoCombatePobreza() {
 		return this.valorFundoCombatePobreza;
 	}
+
+	public String getCodigoBeneficioFiscalReducaoBaseCalculoUF() {
+	        return codigoBeneficioFiscalReducaoBaseCalculoUF;
+	}
+	
+	public void setCodigoBeneficioFiscalReducaoBaseCalculoUF(String codigoBeneficioFiscalReducaoBaseCalculoUF) {
+	        this.codigoBeneficioFiscalReducaoBaseCalculoUF = codigoBeneficioFiscalReducaoBaseCalculoUF;
+	}	
 }
